@@ -1,0 +1,41 @@
+<!Doctype HTML>
+<html>
+<!-- 
+	Joel R. Youngberg
+	Date: 27 Aug 14
+	Project: Ice Cream While Loops
+-->
+
+<head>
+<meta charset="utf-8">
+<title>Ice Cream While Loops</title>
+</head>
+<body>
+	<script>
+	//Declaring Variables
+	var scoops = 5;
+	
+		while(scoops > 0) {
+			if (scoops >= 5) {
+				alert("Eat faster, the ice cream is going to melt!");
+				} else if (scoops == 3) {
+				alert("Ice cream is running low!");
+				} else if (scoops == 2) {
+				alert("Going once!");
+				} else if (scoops == 1) {
+				alert("Going twice!");
+				} else if (scoops == 0) {
+				alert("Gone!");
+				} else {
+				alert("Still lots of ice cream left, come and get it.");
+				}//End Chain of if statements
+			document.write("Another scoop!<br>");
+			scoops = scoops - 1;
+			}
+			document.write("Life without ice cream just isn't the same...");
+	</script>
+</body>
+
+</html>
+
+

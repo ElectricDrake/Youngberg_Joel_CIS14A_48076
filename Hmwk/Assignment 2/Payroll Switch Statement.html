@@ -3,7 +3,7 @@
 <!-- 
 	Joel R. Youngberg
 	Date: 16 Sep 14
-	Project: If example
+	Project: If Else example
 
 Use the following concepts in the assignment, (if,if-else,switch) 3 separate pages.
 
@@ -31,9 +31,21 @@ mark.lehr@rcc.edu with subject: Lastname, Firstname - Assignment 2.0 -  48076
 	
 	numHrs = prompt("Please enter the number of hours worked: ");
 	
-	if(numHrs <= 20) totPay = numHrs * payRate;
-	else if(numHrs > 20 && numHrs <= 40) totPay = (payRate * 20) + (numHrs - 20)* dbTime;
-	else totPay = (payRate * 20) + (dbTime * 20) + (numHrs - 40)* triTime;
+	
+	switch(numHrs <= 20){
+	case true:{
+		totPay = numHrs * payRate; break;
+	}
+	case false:{totPay = (payRate * 20) + (numHrs - 20)* dbTime; 
+				if(numHrs > 40){
+					totPay = (payRate * 20) + (dbTime * 20) + (numHrs - 40)* triTime;
+				}
+				break;
+	}
+	default:{ 
+	 
+	  }
+	}//end switch
 	
 	document.write("<h4>Number of hours worked: "+numHrs+"</h4>");
 	document.write("<h4>Total Pay: $"+totPay+"</h4>");

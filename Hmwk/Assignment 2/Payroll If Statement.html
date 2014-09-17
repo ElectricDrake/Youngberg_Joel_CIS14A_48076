@@ -1,0 +1,43 @@
+<!Doctype HTML>
+<html>
+<!-- 
+	Joel R. Youngberg
+	Date: 16 Sep 14
+	Project: If example
+
+Use the following concepts in the assignment, (if,if-else,switch) 3 separate pages.
+
+Calculate straight time 0-20 hours, double time 20-40 hours, and triple time > 40 hours using a payrate of $10/hour.
+
+Send me a link to your repository by posting here and creating an email which copies yourself to
+
+mark.lehr@rcc.edu with subject: Lastname, Firstname - Assignment 2.0 -  48076
+-->
+
+<head>
+<meta charset="utf-8">
+<title>Payroll: If Statement</title>
+</head>
+<body>
+	<script>
+	//Declaring variables
+	var payRate = 10;
+	var dbTime = payRate * 2;
+	var triTime = payRate * 3;
+	var numHrs = 0;
+	var totPay = 0;
+	
+	document.write("<h1>Payroll Calculation Program</h1>");
+	
+	numHrs = prompt("Please enter the number of hours worked: ");
+	
+	if(numHrs <= 20) totPay = numHrs * payRate;
+	if(numHrs > 20 && numHrs <= 40) totPay = (payRate * 20) + (numHrs - 20)* dbTime;
+	if(numHrs > 40) totPay = (payRate * 20) + (dbTime * 20) + (numHrs - 40)* triTime;
+	
+	document.write("<h4>Total Pay: $"+totPay+"</h4>");
+	
+	</script>
+</body>
+
+</html>

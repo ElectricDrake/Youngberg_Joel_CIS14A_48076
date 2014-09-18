@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>if Else</title>
+</head>
+
+<body>
+<script type="text/javascript">
+
+// Write your function below. 
+// Don't forget to call your function!
+var msg;
+var sleepCheck = function(numHours){
+    
+    if(numHours >= 8){
+        msg = "You're getting plenty of sleep! Maybe even too much!";
+        return msg;
+    }else if (numHours < 8){
+        msg = "Get some more shut eye!";
+        return msg;
+    }
+}//End Function
+
+sleepCheck(10);
+
+sleepCheck(5);
+
+sleepCheck(8);
+
+</script>
+
+</body>
+</html>

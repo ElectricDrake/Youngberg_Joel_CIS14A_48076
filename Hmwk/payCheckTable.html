@@ -1,0 +1,83 @@
+<script type="text/java">
+	/*
+		Author: Aaron C Salcido
+		September 24th, 2014
+		Purpose: Assignement 4.0
+				Using arrays to create a table that calculates Hours, Gross Pay, $/hour, Net Pay.
+				 
+	*/
+</script>
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Array Table</title>
+</head>
+
+<body>
+
+
+		<table width="200" border="1">
+        <thead>
+        	<tr>
+            	<th style="font-family: Verdana ;font-size:20px"  colspan="5">Pay Check Table</th>
+            </tr>
+        </thead>
+ 
+        <tr>
+        	<th style="font-family: Verdana">Hours</th>
+            <th style="font-family: Verdana">Gross Pay</th>
+            <th style="font-family: Verdana">Pay Rate$/hour</th>
+            <th style="font-family: Verdana">Taxes at 10%</th>
+            <th style="font-family: Verdana">Net Pay $'s</th>
+         </tr>
+         
+         
+        
+<script type="text/javascript">
+		//Set up savings table
+		var hour = parseInt(Math.random()*50+10);
+		var ovt  = 20; //OVERTIME
+		var dbt  = 40; //DOUBLE TIME
+		
+		
+		var str=" ";       //STORES THE DOCUMENT.WRITE
+		var tax     = 0.1;//UNITS IN %
+		var netpay  = [];
+		var payrate = [];
+		var gross   = [];
+		
+		//FILL ARRAYS
+		pay[0]      = 10;       //AMOUNT PER HOUR
+		pay[1]      = pay*hour; //GROSS PAY
+		pay[2]      = pay/hour; 
+		netpay[0]   = 0;
+		gross[0]    = pay*hour;
+		
+		
+		
+		
+		//Output initial conditions
+		
+		document.write("<p>"+"Dollars Per Hour Straight Time =  $"+pay[0]+"</p>");
+		document.write("<p>Dollars Per Hour Earned =  $"+pay[1]+"</p>");
+		document.write("<p>Overtime Start =  "+ovt+" hours</p>");
+		document.write("<p>Double Time Start  =  "+dbt+" hours</p>");
+		
+		
+		//Generate a table
+		
+			
+			//TABLE ROW 
+			str+=("<tr>") ;
+			str+=("<td>" +hour+ "</td>");			
+			str+=("<td>" +gross[0]+ "</td>");
+			str+=("<td>" +pay[2]+ "</td>");
+			str+=("</tr>") ;
+		
+		document.write(str);
+	</script>
+</table
+></body>
+</html>

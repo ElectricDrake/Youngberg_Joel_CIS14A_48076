@@ -50,38 +50,47 @@
 		
 		//Filling Arrays
 		for(var i = 0; i <= 72; i ++){
+		//Basic Fills
 			//Fill hours array
 			hours[i] = i;
 			//Fill payrate array
 			payrate[i] = reg;
 			//Fill gross pay array
 			gross[i] = hours[i] * reg;
+			//Fill taxes
+			taxes[i] = gross[i] * .10;
+			//Fill netpay
+			netpay[i] = gross[i] - taxes[i];
+			
+		//Double time fills
 			if(i > 20){
 			payrate[i] = dbt;
 			//Fill gross pay array double time
 			gross[i] = 200 + (i - 20) * dbt ;
+			//Fill taxes double time
+			taxes[i] = gross[i] * .10; 
+			//Fill netpay double time
+			netpay[i] = gross[i] - taxes[i];
 			}//End if double time
+			
+		//Triple time fills
 			if(i > 40){
 			payrate[i] = tri;
 			//Fill gross pay array triple time
 			gross[i] = 600 + (i - 40) * tri ;
+			//Fill taxes triple time
+			taxes[i] = gross[i] * .10; 
+			//Fill netpay triple time
+			netpay[i] = gross[i] - taxes[i];
 			}//End if triple time
-		}//End for
-		
-		//hours[] = 0;       
-		//taxes[] = 0; 
-		//payrate[] = 0; 
-		//netpay[] = 0;
-		//gross[] = 0;
-		
+		}//End for loop
 		
 		
 		//Output initial conditions
 		
-		//document.write("<p>Dollars Per Hour Straight Time =  $"+pay[0]+"</p>");
-		//document.write("<p>Dollars Per Hour Earned =  $"+pay[1]+"</p>");
-		//document.write("<p>Overtime Start =  "+ovt+" hours</p>");
-		//document.write("<p>Double Time Start  =  "+dbt+" hours</p>");
+		document.write("<p>Dollars Per Hour Straight Time =  $"+10+"</p>");
+		document.write("<p>Double Time Start =  "+20+" hours</p>");
+		document.write("<p>Triple Time Start  =  "+40+" hours</p>");
 		
 		
 		//Generate a table

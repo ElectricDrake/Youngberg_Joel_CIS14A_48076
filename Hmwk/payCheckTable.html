@@ -1,83 +1,89 @@
-<script type="text/java">
-	/*
-		Author: Aaron C Salcido
-		September 24th, 2014
-		Purpose: Assignement 4.0
-				Using arrays to create a table that calculates Hours, Gross Pay, $/hour, Net Pay.
-				 
-	*/
-</script>
 
-<!doctype html>
-<html>
+<!Doctype html>
+<html lang ="en">
 <head>
 <meta charset="utf-8">
 <title>Array Table</title>
+<script type="text/javascript">
+	/*
+		Author: Joel R. Youngberg
+		24 Sep 2014
+		Paycheck Table		 
+	*/
+</script>
 </head>
+
 
 <body>
 
-
-		<table width="200" border="1">
-        <thead>
+<table border="1">
+        
         	<tr>
             	<th style="font-family: Verdana ;font-size:20px"  colspan="5">Pay Check Table</th>
             </tr>
-        </thead>
  
         <tr>
         	<th style="font-family: Verdana">Hours</th>
-            <th style="font-family: Verdana">Gross Pay</th>
             <th style="font-family: Verdana">Pay Rate$/hour</th>
+            <th style="font-family: Verdana">Gross Pay</th>
             <th style="font-family: Verdana">Taxes at 10%</th>
-            <th style="font-family: Verdana">Net Pay $'s</th>
+            <th style="font-family: Verdana">Net Pay $s</th>
          </tr>
          
-         
-        
 <script type="text/javascript">
-		//Set up savings table
-		var hour = parseInt(Math.random()*50+10);
-		var ovt  = 20; //OVERTIME
-		var dbt  = 40; //DOUBLE TIME
+		//Setting up savings table
+		var hour = 0
+		var ovt  = 20; //Overtime
+		var dbt  = 40; //Doubletime
+		var payAmt = 10;//10 dollars per hour
 		
 		
-		var str=" ";       //STORES THE DOCUMENT.WRITE
-		var tax     = 0.1;//UNITS IN %
-		var netpay  = [];
+		var str=" ";       //Stores output
+		var tax     = 0.1;//unit %
+		
 		var payrate = [];
 		var gross   = [];
+		var taxes = [];
+		var hours = [];
+		var netpay  = [];
 		
-		//FILL ARRAYS
-		pay[0]      = 10;       //AMOUNT PER HOUR
-		pay[1]      = pay*hour; //GROSS PAY
-		pay[2]      = pay/hour; 
-		netpay[0]   = 0;
-		gross[0]    = pay*hour;
-		
+		//Filling Arrays
+		for(var i = 0; i <= 72; i ++){
+			hours[i] = i;
+			payrate[i] = i * payAmt;
+		}
+		//hours[] = 0;       
+		//taxes[] = 0; 
+		//payrate[] = 0; 
+		//netpay[] = 0;
+		//gross[] = 0;
 		
 		
 		
 		//Output initial conditions
 		
-		document.write("<p>"+"Dollars Per Hour Straight Time =  $"+pay[0]+"</p>");
-		document.write("<p>Dollars Per Hour Earned =  $"+pay[1]+"</p>");
-		document.write("<p>Overtime Start =  "+ovt+" hours</p>");
-		document.write("<p>Double Time Start  =  "+dbt+" hours</p>");
+		//document.write("<p>Dollars Per Hour Straight Time =  $"+pay[0]+"</p>");
+		//document.write("<p>Dollars Per Hour Earned =  $"+pay[1]+"</p>");
+		//document.write("<p>Overtime Start =  "+ovt+" hours</p>");
+		//document.write("<p>Double Time Start  =  "+dbt+" hours</p>");
 		
 		
 		//Generate a table
 		
 			
-			//TABLE ROW 
+			//Table print statement
+			for(var i = 0; i <= 72; i ++){
 			str+=("<tr>") ;
-			str+=("<td>" +hour+ "</td>");			
-			str+=("<td>" +gross[0]+ "</td>");
-			str+=("<td>" +pay[2]+ "</td>");
+			str+=("<td>" + hours[i] + "</td>");			
+			str+=("<td>" +payrate[i]+ "</td>");
+			str+=("<td>" +gross[i]+ "</td>");
+			str+=("<td>" +taxes[i]+ "</td>");
+			str+=("<td>" +netpay[i]+ "</td>");
 			str+=("</tr>") ;
+			}
 		
 		document.write(str);
 	</script>
-</table
-></body>
+</table>
+</body>
 </html>

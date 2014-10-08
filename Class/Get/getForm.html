@@ -3,42 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<script type="text/javascript">
-//Call function here
-	var url = location.href;
-	$_GET=getForm(url);
-	for(name in $_GET){
-	document.write(name+"="+$_GET[name]+"</br>");	
-}
-</script>
-
+<script type="text/javascript" src="formInfo.js"></script>
 </head>
 
 <body>
 <script type="text/javascript">
 var url=location.href;
-var info=url.split("?");
-for (var i = 0; i<info.length;i++){
-	document.write("<h1>"+info[i]+"</h1>");
-}
-
-var nameValuePairs = info[1].split("&");
-var $_GET = new Object;
-for (var i = 0; i<nameValuePairs.length-1;i++){
-	document.write("<h1>"+nameValuePairs[i]+"</h1>");
-	var map = nameValuePairs[i].split("=");
-	var name = map[0];
-	var value = map[1];
-	$_GET[name]=value;
-}
-
-for(name in $_GET){
+var $_GET = getForm(url);
+for(property in $_GET){
 	document.write(property+"="+$_GET[property]+"</br>");
 }
 
-
-
-
+var nm = $_GET.Name;
+document.write(nm);
 
 
 </script>

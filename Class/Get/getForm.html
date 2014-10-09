@@ -14,11 +14,127 @@ for(property in $_GET){
 	document.write(property+"="+$_GET[property]+"</br>");
 }
 
-var nm = $_GET.Name;
-document.write(nm);
+var taxRate = $_GET.TaxPer;
+var regular = $_GET.Reg;
+var doubleTime = $_GET.Double;
+var tripleTime = $_GET.Triple;
+var hours = $_GET.Hours;
 
+document.write(taxPer);
+document.write(regular);
+document.write(double);
+document.write(triple);
+document.write(hours);
 
 </script>
+
+
+<script type="text/javascript">
+	/*
+		Author: Joel R. Youngberg
+		30 Sep 2014
+		Paycheck Table 2D array		 
+	*/
+</script>
+
+         
+<script type="text/javascript">
+		//Setting up savings table
+		
+		var reg = regular;//10 dollars per hour straight time
+		var dbt  = doubleTime; //Doubletime
+		var tri  = tripleTime; //Triple time
+		var str2=" ";       //Stores output
+		
+		//Output initial conditions
+		
+		document.write("<p>Dollars Per Hour Straight Time =  $"+10+"</p>");
+		document.write("<p>Double Time Start =  "+20+" hours</p>");
+		document.write("<p>Triple Time Start  =  "+40+" hours</p>");
+		
+</script>
+
+<table border="1">
+        
+        	<tr>
+            <th style="font-family: Verdana ;font-size:20px"  colspan="5">Pay Check Table</th>
+            </tr>
+ 
+        <tr>
+        	<th style="font-family: Verdana">Hours</th>
+            <th style="font-family: Verdana">Pay Rate $/hour</th>
+            <th style="font-family: Verdana">Gross Pay</th>
+            <th style="font-family: Verdana">Taxes at 10%</th>
+            <th style="font-family: Verdana">Net Pay</th>
+         </tr>
+         
+<script type="text/javascript">
+         
+         var row = hours++;
+         var col = 5;
+         var str2;
+         var fill = 0;
+         
+         //Declare two-dimensional array
+         var table = new Array(row); // rows of the table
+         for(var i = 0; i < table.length; i++)
+         	table[i] = new Array(col); // Each row has 5 columns
+         	
+         // Fill the array
+         for(var row = 0; row < table.length; row++) {
+         	for(col = 0; col < table[row].length; col++) {
+         		//Basic Fills
+         		//Fill the number of hours
+         		table[row][0] = row;
+         		//Fill the pay rate
+         		table[row][1] = reg;
+         		//Fill the gross pay
+         		table[row][2] = table[row][0]* reg;
+         		//Fill the taxes
+         		table[row][3] = table[row][2] * taxRate;
+         		//Fill the Net Pay
+         		table[row][4] = table[row][2] - table[row][3];
+         		
+         		//Double time fills
+         		if(row > 20){
+         			table[row][1] = dbt;
+         			//Fill gross pay array double time
+         			table[row][2] = 200 + (row - 20) * dbt;
+         			//Fill taxes double time
+         			table[row][3] = table[row][2] * taxRate; 
+         			//Fill netpay double time
+         			table[row][4] = table[row][2] - table[row][3];
+         			}//End if double time
+         			
+         		//Triple time fills
+         		if(row > 40){
+         			table[row][1] = tri;
+         			//Fill gross pay array triple time
+         			table[row][2] = 600 + (row - 40) * tri;
+         			//Fill taxes triple time
+         			table[row][3] = table[row][2] * taxRate;
+         			//Fill netpay triple time
+         			table[row][4] = table[row][2] - table[row][3];
+         			}//End if triple time
+         	}//End fill for
+         }//End fill for
+         //Print the 2D array to the browser
+         for(var i = 1; i < row; i++) {
+            
+            str2+= ("<tr>");
+            str2+= ("<td>"+table[i][0]+"</td>");
+            str2+= ("<td>"+table[i][1]+"</td>");
+            str2+= ("<td>"+table[i][2]+"</td>");
+            str2+= ("<td>"+table[i][3]+"</td>");
+            str2+= ("<td>"+table[i][4]+"</td>");
+            str2+= ("</tr>");
+         		
+         	}//End for loop
+         	
+         document.write(str2);
+         </script>
+         </table>
+
 
 </body>
 </html>

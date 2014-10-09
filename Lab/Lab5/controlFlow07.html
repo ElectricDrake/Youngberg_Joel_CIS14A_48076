@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script type="text/javascript">
+var user = prompt("You see a table with fruit... you pick up a... APPLE/BANANA/ORANGE");
+
+user.toLowerCase();
+
+switch(user){
+    case "apple":
+        console.log("you picked up an apple");
+        var appleMsg = prompt("Was your apple RED or GREEN?");
+        appleMsg.toLowerCase();
+        if(appleMsg == "red" || appleMsg == "green");
+            console.log("You ate the apple and it was good");
+        break;
+    case "banana":
+        console.log("you picked up a banana");
+        var bananaMsg = prompt("Was your banana YELLOW or GREEN");
+        bananaMsg.toLowerCase();
+        if(bananaMsg == "yellow" && bananaMsg == "Yellow")
+        console.log("do nothing");
+        else if(bananaMsg=="green")
+        console.log("That's a young banana!");
+        break;
+    case "orange":
+        console.log("you picked up an orange");
+        break;
+    default:
+        console.log("you didn't pick one up...");
+}
+</script>
+
+</body>
+</html>

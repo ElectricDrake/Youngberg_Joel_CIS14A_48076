@@ -6,6 +6,9 @@
 </head>
 
 <body>
+
+
+
 <table width="666" height="666" border="1" cellpadding="10" cellspacing="2">
   <tr>
     <td>&nbsp;</td>
@@ -151,5 +154,32 @@
     <td>&nbsp;</td>
   </tr>
 </table>
+
+<script type="text/javascript">
+	function rollDice(){
+		var Dice = {
+			die1: Math.floor(Math.random() * 6 +1),//Adding one eliminates a zero roll
+			die2: Math.floor(Math.random() * 6 +1),
+			doubles: true
+		}
+		return Dice;
+		}
+</script>
+
+<script type="text/javascript">
+	var test = "test";
+	var DiceRoll = new Object();
+	
+	DiceRoll = rollDice();
+	
+	document.write(DiceRoll.die1);
+	document.write(DiceRoll.die2);
+	document.write(DiceRoll.doubles);
+	document.write("<h3>"+test+"</h3>");
+</script>
+
+
+
+
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--Joel R. Youngberg 1JUN2014 -->
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<title>Bonsai Club Form</title>
+<link rel="stylesheet" type="text/css" href="bonsaiGarden.css" />
+
+<style>
+<!--
+	legend 		{color: white;
+				font-size: small;
+				margin-top: -13px;}
+
+	fieldset legend span{
+    background-color: #6ca76b;}
+    
+    article.right	{float: right;
+    			 padding-left: 20px;
+    			 width: 515px}
+    
+    section {width: 520px;
+		     margin:0 auto;}
+    			 
+ -->
+</style>
+</head>
+
+<body>
+<header class="centerOnly">
+<img src="images/mainLogo.gif" alt="Bonsai Tree Logo">
+</header>
+
+<nav class="centerOnly">
+
+<h3><a href="bonsaiHome_Youngberg.html">Home</a> | <a href="gallery_Youngberg.html">Gallery</a> | <a href="clubForm_Youngberg.html">Join the Bonsai Garden Club</a></h3>
+<p>
+Bonsai Garden Club Membership Form
+</p>
+</nav>
+
+<div class="left">
+<!--Empty Gutter -->
+</div>
+<!--Set Inline Width Here -->
+<section>
+
+
+<form method="post" action="mailto:jyoungberg1@student.rcc.edu">
+<article class="centerLeft">
+    First Name: <br /><input name="firstname" type="text" size=" 35" /><br />
+    <br />
+	Home Address: <br /><input name="address" type="text" size="35" /><br />
+	<br />
+	Email Address: <br /><input name="email" type="text" size="35" />
+   <p> Comments or Questions?</p>
+</article>
+<!-- Column Change here -->
+<article>
+<p style="padding-bottom: 4px"> Last Name: <br /><input name="lastname" type="text" size="35" /></p>
+
+<p> Phone Number: <br /><input name="phone" type="text" size="35" /></p>
+
+<fieldset style="border: 1px gray solid; border-radius: 10px">
+<legend><span>&nbsp;Subscription Options&nbsp;</span></legend>
+    <p style="margin: 0px; padding-top: 5px; padding-bottom: 0px">
+    <input name="weeklyEmail" type="checkbox" value="weeklyEmail" checked /> Weekly Email <br /> 
+	<input name="newsletter" type="checkbox" value="newsletter" /> Newsletter <br /> 
+	<input name="blog" type="checkbox" value="blog" /> Blog</p>
+	
+</fieldset>
+    
+	<textarea name="other" rows="8" cols="60"></textarea>
+	
+	<p><input type="submit" value="Submit" />
+	<input type="reset" value="Reset" /></p>
+	
+</article>
+</form>
+
+
+</section>
+
+<div class="right">
+<!--Empty Gutter -->
+</div>
+
+<footer class="centerOnly">
+<p style="text-align: center">
+The Bonsai Garden - 123 Tree Lane, Forest City, TR 654321 - (127) 000 - 1234
+</p>
+</footer>
+</body>
+
+</html>

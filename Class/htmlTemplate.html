@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>untitled</title>
+		<meta charset="utf-8">
+		
+		
+	</head>
+	<body>
+        
+        <div id= "name"></div>
+        
+        <script type="text/javascript">
+		var x = document.getElementById("name");
+		x.innerHTML = "Just made this";
+		
+		document.getElementById("name").innerHTML = "changed it";
+		
+		
+		var newp = document.createElement("p");//Create paragraph element
+		
+		var text = document.createTextNode("new text");//Create text variable and fill with text
+		
+		newp.appendChild(text);//put text in paragraph tag
+		
+		document.body.appendChild(newp);//put paragraph tag into body
+		
+		</script>
+ 
+	</body>
+</html>

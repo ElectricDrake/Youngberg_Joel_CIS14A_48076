@@ -26,6 +26,70 @@
     			 
  -->
 </style>
+<script>
+	//	For multiple fields, name the function accordingly.
+	function validate_firstName(){
+		var arr = document.forms["memberForm"]["firstName"].value.match(/^\s*[A-Za-z]{3,15}$\s*/);
+		if ( arr != null) {
+			return true;
+		} else {
+			alert("ERROR: Please enter a valid first name...");	//	Change alert message to reflect expected input.
+			return false;
+		}
+	}
+	
+	function validate_lastName(){
+		var arr = document.forms["memberForm"]["lastName"].value.match(/^\s*[A-Za-z]{3,15}$\s*/);
+		if ( arr != null) {
+			return true;
+		} else {
+			alert("ERROR: Please enter a valid last name...");	//	Change alert message to reflect expected input.
+			return false;
+		}
+	}
+	
+	function validate_address(){
+		var arr = document.forms["memberForm"]["address"].value.match(/^\s*[0-9]*\s*[A-Za-z]*$\s*/);
+		if ( arr != null) {
+			return true;
+		} else {
+			alert("ERROR: Please enter a valid address...");	//	Change alert message to reflect expected input.
+			return false;
+		}
+	}
+	
+	function validate_emailAddress(){
+		var arr = document.forms["memberForm"]["email"].value.match(/^\s*[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$\s*/);
+		if ( arr != null) {
+			return true;
+		} else {
+			alert("ERROR: Please enter a valid email address...");	//	Change alert message to reflect expected input.
+			return false;
+		}
+	}
+	
+	function validate_phoneNumber(){
+		var arr = document.forms["memberForm"]["phone"].value.match(/^\s*[0-9]{3}\-[0-9]{3}\-[0-9]{4}$\s*/);
+		if ( arr != null) {
+			return true;
+		} else {
+			alert("ERROR: Please enter a valid phone number in format 123-456-6789...");	//	Change alert message to reflect expected input.
+			return false;
+		}
+	}
+	
+	
+
+	function validate_form(){
+		if(!validate_firstName())return false;
+		if(!validate_lastName())return false;
+		if(!validate_address())return false;
+		if(!validate_emailAddress())return false;
+		if(!validate_phoneNumber())return false;
+		/* Add new line for each field validation, be sure the function names are correct. */
+		return true;
+	}
+</script>
 </head>
 
 <body>
@@ -48,22 +112,22 @@ Bonsai Garden Club Membership Form
 <section>
 
 
-<form method="post" action="mailto:jyoungberg1@student.rcc.edu">
+<form name="memberForm" id="memberFrom" action="clubForm_Youngberg.html" onsubmit="return validate_form()" method="get">
 <article class="centerLeft">
-    First Name: <br /><input name="firstname" type="text" size=" 35" /><br />
+    First Name: <br /><input name="firstName" type="text" size="30" /><br />
     <br />
-	Home Address: <br /><input name="address" type="text" size="35" /><br />
+	Home Address: <br /><input name="address" type="text" size="30" /><br />
 	<br />
-	Email Address: <br /><input name="email" type="text" size="35" />
-   <p> Comments or Questions?</p>
+	Email Address: <br /><input name="email" type="text" size="30" />
+   <p style= "padding-bottom: 0px; margin-bottom: 0px"> Comments or Questions?</p>
 </article>
-<!-- Column Change here -->
+<!-- Column Change happens here -->
 <article>
-<p style="padding-bottom: 4px"> Last Name: <br /><input name="lastname" type="text" size="35" /></p>
+	<p style="padding-bottom: 4px; padding-top: 0px; margin-top: 0px"> Last Name: <br /><input name="lastName" type="text" size="30" /></p>
 
-<p> Phone Number: <br /><input name="phone" type="text" size="35" /></p>
+	<p style="padding-bottom: 0px; margin-bottom: 0px"> Phone Number: <br /><input name="phone" type="text" size="30" /></p>
 
-<fieldset style="border: 1px gray solid; border-radius: 10px">
+<fieldset style="border: 1px gray solid; border-radius: 10px; padding-top: 0px; margin-top: 3px; padding-bottom: 4px">
 <legend><span>&nbsp;Subscription Options&nbsp;</span></legend>
     <p style="margin: 0px; padding-top: 5px; padding-bottom: 0px">
     <input name="weeklyEmail" type="checkbox" value="weeklyEmail" checked /> Weekly Email <br /> 
@@ -72,7 +136,7 @@ Bonsai Garden Club Membership Form
 	
 </fieldset>
     
-	<textarea name="other" rows="8" cols="60"></textarea>
+	<textarea name="other" rows="8" cols="70"></textarea>
 	
 	<p><input type="submit" value="Submit" />
 	<input type="reset" value="Reset" /></p>

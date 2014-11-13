@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NullTest</title>
+
+<script type="text/javascript">
+function divide(){
+	
+		if(denominator == 0){
+			return("You cannot divide by zero");
+		}
+		else{
+		var resultDiv = numerator/denominator;
+		return resultDiv;
+		}
+	}
+	
+	function exponent(){
+		var resultPow = Math.pow(base,power);
+		return resultPow;
+	}
+	
+	function squareRoot(){
+		var resultSqr = Math.sqrt(root);
+		return resultSqr;
+	}
+</script>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+	//Prompting for all values
+	var numerator = prompt("Enter the numerator");
+	var denominator = prompt("Enter the denominator");
+	var base = prompt("Enter the base");
+	var power = prompt("Enter the power");
+	var root = prompt("Enter the root");
+	
+	//Parsing all values
+	numerator = parseFloat(numerator);
+	denominator = parseFloat(denominator);
+	base = parseFloat(base);
+	power = parseFloat(power);
+	root = parseFloat(root);
+	
+	
+	document.write("<p>The quotient is: " +divide()+ "</p>");
+	document.write("<p>The power is: " +exponent()+ "</p>");
+	document.write("<p>The square root is: " +squareRoot()+ "</p>");
+	
+	
+</script>
+
+
+</body>
+</html>

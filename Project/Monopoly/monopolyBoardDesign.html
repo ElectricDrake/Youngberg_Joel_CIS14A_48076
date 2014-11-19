@@ -117,5 +117,34 @@
 </tr>
 </table>
 <p><br />
+
+<script type="text/javascript">
+	function rollDice(){
+		var Dice = {
+			die1: Math.floor(Math.random() * 6 +1),//Adding one eliminates a zero roll
+			die2: Math.floor(Math.random() * 6 +1),
+			doubles: function(){
+				//if(die1 == die2)
+				return true;
+			 }//End doubles function
+			}//End Dice Object
+		return Dice;
+		}//End rollDice function
+</script>
+
+<script type="text/javascript">
+	var test = "test";
+	var DiceRoll = new Object();
+	var isDoubles = false;
+	
+	DiceRoll = rollDice();
+	
+	document.write(DiceRoll.die1);
+	document.write(DiceRoll.die2);
+	isDoubles = DiceRoll.doubles();
+	document.write("<h3>"+isDoubles+"</h3>");
+	document.write("<h3>"+test+"</h3>");
+</script>
+
 </body>
 </html>

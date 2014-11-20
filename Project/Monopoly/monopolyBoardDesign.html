@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Monopoly</title>
+<link rel="stylesheet" type="text/css" href="monopoly.css" />
 </head>
 
 <body>
@@ -76,75 +77,53 @@
 		<td style="">Chance</td>
 	</tr>
 	<tr>
-		<td style="height:34px;border-right:solid 12px DarkOrchid">States Avenue<br />
+		<td id="13" style="height:34px;border-right:solid 12px DarkOrchid">States Avenue<br />
 		$140</td>
-		<td style="border-left:solid 12px Blue">Park Place<br />
+		<td id="37" style="border-left:solid 12px Blue">Park Place<br />
 		$350</td>
 	</tr>
 	<tr>
-		<td style="height:34px;">Electric Company<br />
+		<td id="12" style="height:34px;">Electric Company<br />
 		$150</td>
-		<td style="">Luxury Tax<br />
+		<td id="38" style="">Luxury Tax<br />
 		(pay $100)</td>
 	</tr>
 	<tr>
-		<td style="height:34px;border-right:solid 12px DarkOrchid">St. Charles Place<br />
+		<td id="11" style="height:34px;border-right:solid 12px DarkOrchid">St. Charles Place<br />
 		$140</td>
-		<td style="border-left:solid 12px Blue">Boardwalk<br />
+		<td id="39" style="border-left:solid 12px Blue">Boardwalk<br />
 		$400</td>
 	</tr>
 	<tr>
-		<td style="height:60px;">In Jail/Just Visiting</td>
-		<td style="border-top:solid 12px SkyBlue">Connecticut Avenue<br />
+		<td id="10" style="height:60px;">In Jail/Just Visiting</td>
+		<td id="9" style="border-top:solid 12px SkyBlue">Connecticut Avenue<br />
 		$120</td>
-		<td style="border-top:solid 12px SkyBlue">Vermont Avenue<br />
+		<td id="8" style="border-top:solid 12px SkyBlue">Vermont Avenue<br />
 		$100</td>
-		<td style="">Chance</td>
-		<td style="border-top:solid 12px SkyBlue">Oriental Avenue<br />
+		<td id="7" style="">Chance</td>
+		<td id="6" style="border-top:solid 12px SkyBlue">Oriental Avenue<br />
 		$100</td>
-		<td style="">Reading Railroad<br />
+		<td id="5" style="">Reading Railroad<br />
 		$200</td>
-		<td style="">Income Tax<br />
+		<td id="4" style="">Income Tax<br />
 		(pay $200)</td>
-		<td style="border-top:solid 12px SaddleBrown">Baltic Avenue<br />
+		<td id="3" style="border-top:solid 12px SaddleBrown">Baltic Avenue<br />
 		$60</td>
-		<td style="">Community Chest</td>
-		<td style="border-top:solid 12px SaddleBrown">Mediter-ranean Avenue<br />
+		<td id="2" style="">Community Chest</td>
+		<td id="1" style="border-top:solid 12px SaddleBrown">Mediter-ranean Avenue<br />
 		$60</td>
-		<td><b>Go</b><br />
+		<td id="0" class="avatar"><b>Go</b><br />
 		(collect $200)<br />
 <a href="/wiki/File:Monopoly_Go_Arrow.png" class="image"><img alt="Monopoly Go Arrow.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/96/Monopoly_Go_Arrow.png/44px-Monopoly_Go_Arrow.png" width="44" height="8" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/96/Monopoly_Go_Arrow.png/66px-Monopoly_Go_Arrow.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/96/Monopoly_Go_Arrow.png/88px-Monopoly_Go_Arrow.png 2x" data-file-width="793" data-file-height="151" /></a></td>
 </tr>
 </table>
 <p><br />
 
-<script type="text/javascript">
-	function rollDice(){
-		var Dice = {
-			die1: Math.floor(Math.random() * 6 +1),//Adding one eliminates a zero roll
-			die2: Math.floor(Math.random() * 6 +1),
-			doubles: function(){
-				//if(die1 == die2)
-				return true;
-			 }//End doubles function
-			}//End Dice Object
-		return Dice;
-		}//End rollDice function
-</script>
+<button onclick="rollDice()">Roll Dice</button>
 
-<script type="text/javascript">
-	var test = "test";
-	var DiceRoll = new Object();
-	var isDoubles = false;
-	
-	DiceRoll = rollDice();
-	
-	document.write(DiceRoll.die1);
-	document.write(DiceRoll.die2);
-	isDoubles = DiceRoll.doubles();
-	document.write("<h3>"+isDoubles+"</h3>");
-	document.write("<h3>"+test+"</h3>");
-</script>
+<p id="diceDisplay">Click Roll Dice to Begin...</p>
+
+<script src = "monopoly.js"></script>
 
 </body>
 </html>

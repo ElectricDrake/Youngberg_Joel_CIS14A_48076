@@ -1,0 +1,46 @@
+<head>
+	<script>
+		function validate_password(){
+			var arr = document.forms["form"]["Password"].value.match(/* regex goes here*/);
+			if ( arr != null) {
+				//	change the color of the field if correct
+				var tagID = document.getElementById("passW");
+					tagID.style.backgroundColor='#00FF00';
+				return true;
+			} else {
+				alert("PLEASE, ENTER A VALID PASSWORD (place examples here)!");
+				//	change the color of the field if incorrect
+				var tagID = document.getElementById("passW");
+					tagID.style.backgroundColor='#FF0000';
+				return false;
+			}
+		}
+		function confirm_password(){
+			var uPass = document.forms["form"]["Password"].value;
+			var cPass = document.forms["form"]["Confirm_Password"].value;
+			if (uPass == cPass) {
+				//	change the color of the field if correct
+				var tagID = document.getElementById("cPass");
+					tagID.style.backgroundColor='#00FF00';
+				return true;
+			} else {
+				alert("YOUR PASSWORDS DO NOT MATCH!");
+				//	change the color of the field if incorrect
+				var tagID = document.getElementById("cPass");
+					tagID.style.backgroundColor='#FF0000';
+				return false;
+			}
+		}
+
+		function validate_form(){
+			if(!validate_password())return false;
+			if(!confirm_password())return false;
+			return true;
+		}
+	</script>
+</head>
+
+
+<body>	<!--	Update 'action' and 'onsubmit' events.	-->
+	<form name="form" id="form" action="Set_Cookie_CleanURL.html" onsubmit="return validate_form()" method="get">
+</body>

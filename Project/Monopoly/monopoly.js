@@ -2,6 +2,8 @@
 
 //Declaring variables
 	var plrAry = [];
+	
+	var globalLoc = 0;
 
 
 //Dice Roll Functions/Objects
@@ -31,18 +33,18 @@
 	var P1 = {
 		name: "Joel",
 		img: "dog.png",
-		location: 0,
+		location: globalLoc,
 		money: 200,
 		properties: "boardwalk"//Make this an array later...
 	};
 	
 	//Begin game loop here?
-	var CurPlyr = new Object();
+	//var CurPlyr = new Object();
 	//Write code here later to decice what player is current... loop
-	CurPlyr = P1;//Use array index and add to index.../reset when at end to beginning etc. etc. 
+	//CurPlyr = P1;//Use array index and add to index.../reset when at end to beginning etc. etc. 
 	//Move player according to diceroll result
 	//CurPlyr.location = DiceRoll.die1+DiceRoll.die2;
-	CurPlyr.location += DiceRoll.sum();
+	globalLoc += DiceRoll.sum();
 	
 	var View = {
 		displayMove: function(location){
@@ -51,7 +53,7 @@
 		}
 	};
 	
-	View.displayMove(CurPlyr.location);
+	View.displayMove(P1.location);
 		
 		
 	}//End function rollDice////////////////////////////////////////////////////////////

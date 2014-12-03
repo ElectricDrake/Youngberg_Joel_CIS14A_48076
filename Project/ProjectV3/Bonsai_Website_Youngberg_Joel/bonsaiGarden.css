@@ -1,0 +1,30 @@
+<!-- Joel R. Youngberg 3JUN14 -->
+
+html	{min-height: 100%;}
+
+body	{background-color:#6ca76b;
+		 font:15px "Palatino Linotype", "Book Antiqua", Palatino, serif;
+		 color: white;}
+
+.centerOnly {text-align: center;}
+
+.center {width: 1265px;
+		 margin:0 auto;}
+		 
+.centerLeft{width: 250px;
+            margin-right: 15px;
+            float: left;}
+            
+.left 		{width: 180px;
+	   		margin:0 auto;
+	   		float: left;}
+	   
+.right 		{width: 180px;
+			margin:0 auto;
+			float: right;}
+			
+a 			{color: white;
+			text-decoration: none;}
+	    
+
+			

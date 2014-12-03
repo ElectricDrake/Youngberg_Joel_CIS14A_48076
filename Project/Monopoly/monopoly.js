@@ -1,14 +1,40 @@
 // JavaScript Document
 
-//Declaring variables
-	var plrAry = [];
+//Declaring variables - Game setup
+	
+	//Player constructor
+	function Player(name, img, location, money){
+		this.name = name;
+		this.img = img;
+		this.location = location;
+		this.money = money;
+	}
+
+	var plrAry = [];//Array of player objects
+	var imgAry = [];//Array of divs holding images...?
+	var propAry = [];//Array of properties...
+	
+	//prompt here for number of players...
+	var numPlyrs = prompt("Please enter the number of players for the game: ", "2-8");
+	
+	//Fill player array with player objects - make it the size of the amount of players...
+	for (var i = 0; i < numPlyrs; i++){
+		plrAry[i] = new Player();
+	}
+	
+	//Initialize player objects with starting values
+	for (var i = 0; i < numPlyrs; i++){
+		plrAry[i].name = prompt("Please enter the name of player " + parseInt(i+1));
+		plrAry[i].location = 0;
+		plrAry[i].money = 1500;
+	}
+	
 	
 	var globalLoc = 0;
 	var prevLoc = 0;
 	
-	var propAry = [];
 	
-//Dice Roll Functions/Objects
+	//Dice Function Declaration
 	function Dice(){
 		var Dice = {
 			die1: Math.floor(Math.random() * 6 +1),//Adding one eliminates a zero roll
@@ -72,30 +98,5 @@
 	View.displayMove(P1.location);
 	
 		
-		
 	}//End function rollDice////////////////////////////////////////////////////////////
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//displayGamePiece(location){
-		//var boardSpace = document.getElementById(location);
-		//boardSpace.setAttribute("class", "avatar");
-	//}
-	
-	//Don't forget to end the game loop

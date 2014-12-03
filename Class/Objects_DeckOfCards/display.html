@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Show My Cards</title>
+	<script src="./Card.js"></script>
+    <script src="./Deck.js"></script>
+	<script type="text/javascript">
+    	function display(cards){
+			for(var i=0;i<cards.length;i++){
+				document.write(cards[i].toString());
+			}
+		}
+	</script>
+</head>
+
+<body>
+<script type="text/javascript">
+    //Create a Deck of Cards
+	var deck=new Deck;
+	deck.shuffle(7);
+	//Deal the hands
+	var hand1=deck.deal(5);
+	var hand2=deck.deal(5);
+	//Show the hands
+	document.write("<p>Hand1</p>");
+	display(hand1);
+	document.write("<p>Hand2</p>");
+	display(hand2);
+</script>
+</body>
+</html>

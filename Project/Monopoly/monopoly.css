@@ -1,5 +1,23 @@
 @charset "utf-8";
 /* CSS Document */
-.avatar {
+.dog {
 	background: url("dogSmall.png") no-repeat center center;
+}
+
+.ship {
+	background: url("shipSmall.png") no-repeat center center;
+}
+
+#p0 {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+#p1 {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	z-index: 2;
 }

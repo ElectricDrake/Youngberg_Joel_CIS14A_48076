@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    <link rel="stylesheet" type="text/css" href="bonsaiGarden.css" />
+		<title>Admin</title>
+		<meta charset="utf-8">
+		<script src=""></script>
+		<script>
+			function validate_first_name(){
+				var arr = document.forms["form"]["First_Name"].value.match(/^\s*[A-Z][a-z]{1,}([A-Z][a-z]{1,})?(([-\s][A-Z][a-z]{1,})|([A-Z][a-z]{1,}))?\s*$/g);
+				if ( arr != null) {
+					//	change the color of the field if correct
+					var tagID = document.getElementById("fName");
+						tagID.style.backgroundColor='#00FF00';
+					return true;
+				} else {
+					alert("PLEASE, ENTER A VALID FIRST NAME!");
+					//	change the color of the field if incorrect
+					var tagID = document.getElementById("fName");
+						tagID.style.backgroundColor='#FF0000';
+					return false;
+				}
+			}
+			function validate_last_name(){
+				var arr = document.forms["form"]["Last_Name"].value.match(/^\s*(([A-Z][a-z]{1,})([-][A-Z][a-z]{1,})?.*(\s+[A-Z][a-z]{1,})?|([A-Z][a-z'][a-zA-Z][a-z]{1,}))\s*$/g);
+				if ( arr != null) {
+					//	change the color of the field if correct
+					var tagID = document.getElementById("lName");
+						tagID.style.backgroundColor='#00FF00';
+					return true;
+				} else {
+					alert("PLEASE, ENTER A VALID LAST NAME!");
+					//	change the color of the field if incorrect
+					var tagID = document.getElementById("lName");
+						tagID.style.backgroundColor='#FF0000';
+					return false;
+				}
+			}
+			function validate_password(){
+				var arr = document.forms["form"]["Password"].value.match(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&*_-]).{6,20})/g);
+				if ( arr != null) {
+					//	change the color of the field if correct
+					var tagID = document.getElementById("passW");
+						tagID.style.backgroundColor='#00FF00';
+					return true;
+				} else {
+					alert("PLEASE, ENTER A VALID PASSWORD (at least 1 lower, 1 upper, 1 number, and 1 special character)!");
+					//	change the color of the field if incorrect
+					var tagID = document.getElementById("passW");
+						tagID.style.backgroundColor='#FF0000';
+					return false;
+				}
+			}
+			function confirm_password(){
+				var uPass = document.forms["form"]["Password"].value;
+				var cPass = document.forms["form"]["Confirm_Password"].value;
+				if (uPass == cPass) {
+					//	change the color of the field if correct
+					var tagID = document.getElementById("cPass");
+						tagID.style.backgroundColor='#00FF00';
+					return true;
+				} else {
+					alert("YOUR PASSWORDS DO NOT MATCH!");
+					//	change the color of the field if incorrect
+					var tagID = document.getElementById("cPass");
+						tagID.style.backgroundColor='#FF0000';
+					return false;
+				}
+			}
+
+			function validate_form(){
+				if(!validate_first_name())return false;
+				if(!validate_last_name())return false;
+				if(!validate_password())return false;
+				if(!confirm_password())return false;
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+		</script>
+		<form name="form" id="form" action="Set_Cookie_CleanURL.html" onSubmit="return validate_form()" method="get">
+			<b>First Name:</b><br>
+				<input type="text" name="First_Name" id="fName" /><br>
+			<b>Last Name:</b><br>
+				<input type="text" name="Last_Name" id="lName" /><br>
+			<b>Password:</b><br>
+				<input type="password" name="Password" id="passW" /><br>
+			<b>Confirm Password:</b><br>
+				<input type="password" name="Confirm_Password" id="cPass" /><br>
+			<input type="submit" value="SIGN UP">
+		</form>
+	</body>
+</html>

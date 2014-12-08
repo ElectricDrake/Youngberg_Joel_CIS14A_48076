@@ -20,39 +20,42 @@ function RailRoad(name, price, rent, owned, numOwned){
 }
 
 var Chance = {
-	chance: 1
+	name: "Chance"
 };
 
 var CommChest = {
-	comm: 1
+	name: "Community Chest"
 };
 
 var Go = {
-	go1: 1
+	name: "Go"
 };
 
 var GoToJail = {
-	goToJail: 1
+	name: "Go To Jail"
 }
 
 var VisitJail = {
-	visitJail: 1
+	name: "Visit Jail"
 }
 
 var FreePkg = {
-	freePkg: 1
+	name: "Free Parking"
 };
 
 var LuxTax = {
-	luxTax: 1
+	name: "Luxury Tax"
 };
 
-var Utility = {
-	utility: 1
-};
+function Utility(name, price, rent, owned){
+	this.name = name;
+	this.price = price;
+	this.rent = rent;
+	this.owned = owned;
+}
 
 var IncTax = {
-	incTax: 1
+	name: "Income Tax"
 };
 
 
@@ -69,7 +72,7 @@ var IncTax = {
 	boardAry[9] = new Property("Connecticut Avenue", 120, 60, false);
 	boardAry[10] = VisitJail;
 	boardAry[11] = new Property("St. Charles Place", 140, 70, false);
-	boardAry[12] = Utility;
+	boardAry[12] = new Utility("Electric Company", 150, 75, false);
 	boardAry[13] = new Property("States Avenue", 60, 30, false);
 	boardAry[14] = new Property("Virginia Avenue", 60, 30, false);
 	boardAry[15] = new RailRoad("Pennsylvania Railroad", 200, 60, false, 1);
@@ -85,7 +88,7 @@ var IncTax = {
 	boardAry[25] = new RailRoad("B&O Railroad", 200, 60, false, 1);
 	boardAry[26] = new Property("Atlantic Avenue", 60, 30, false);
 	boardAry[27] = new Property("Ventor Avenue", 60, 30, false);
-	boardAry[28] = Utility;
+	boardAry[28] = new Utility("Water Works", 150, 75, false);
 	boardAry[29] = new Property("Marvin Gardens", 60, 30, false);
 	boardAry[30] = GoToJail;
 	boardAry[31] = new Property("Pacific Avenue", 60, 30, false);

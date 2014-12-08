@@ -3,12 +3,13 @@
 //Declaring variables - Game setup
 	
 	//Player constructor
-	function Player(name, img, location, prevLoc, money){
+	function Player(name, img, location, prevLoc, money, inJail){
 		this.name = name;
 		this.img = img;
 		this.location = location;
 		this.prevLoc = prevLoc;
 		this.money = money;
+		this.inJail = inJail;
 	}
 
 	var plrAry = [];//Array of player objects
@@ -38,6 +39,7 @@
 		plrAry[i].name = prompt("Please enter the name of player " + parseInt(i+1));
 		plrAry[i].location = 0;
 		plrAry[i].money = 1500;
+		plrAry[i].inJail = false;
 		//Create image elements for tokens...
 		var x = document.createElement("IMG");
 		x.setAttribute("src", plrAry[i].img);
@@ -96,11 +98,26 @@
 	    //Use array index and change index to change players../reset when at end to beginning etc. etc. 
 	    //Move between players after each roll unless doubles are rolled....
 		
+		
+		//If player is in jail... don't move unless doubles are rolled
+		console.log(plrAry[plrIndx].inJail);
+		if(plrAry[plrIndx].inJail === true && DiceRoll.doubles() === false){
+			alert(plrAry[plrIndx].name+" must stay in Jail "+ DiceRoll.doubles());
+		}
+		else{
 		plrAry[plrIndx].location += DiceRoll.sum(); //Add sum of dice to location to determine where to move
+		}
+		
+		//Test Board Space/////////////////////////////////////////////////////////
+		//plrAry[plrIndx].location = prompt("Enter Board Space");
+		
 		
 		if(plrAry[plrIndx].location >= 40){ //If player reaches or passes GO, reset location 
-		                     //Note: this would be a good place to add the $200 collect feature
-			plrAry[plrIndx].location -= 40;
+		    //Note: this would be a good place to add the $200 collect feature
+			alert(plrAry[plrIndx].name+" got $200 for passing GO!");
+		    plrAry[plrIndx].money += 200; //Current player collects 200 for passing GO!
+			plrAry[plrIndx].location -= 40; //Subtract 40 to put at begining of board again
+			View.displayMoney();
 		}
 		
 	View.displayMove(plrAry[plrIndx].location);
@@ -145,15 +162,42 @@
 		  }
 		}//End if owned in boardAry location
 		else{// if the property is owned or not for sale....
-			document.getElementById("messageDisplay").innerHTML = "<h5>"+"This board space not for sale"+"</h5>";
-		}	
+			document.getElementById("messageDisplay").innerHTML = "<h5>"+boardAry[location].name+" board space not for sale"+"</h5>";
+			if("name" in boardAry[location]){
+				//Luxury Tax space
+				if(boardAry[location].name === "Luxury Tax"){
+				plrAry[plrIndx2].money -= 100;
+				alert(plrAry[plrIndx2].name+" must pay $100 for Luxury Tax");
+				}
+				//Income Tax Space
+				if(boardAry[location].name === "Income Tax"){
+				plrAry[plrIndx2].money -= 200;
+				alert(plrAry[plrIndx2].name+" must pay $200 for Income Tax");
+				}
+				//Go To Jail
+				if(boardAry[location].name === "Go To Jail"){
+				alert(plrAry[plrIndx2].name+" Must Go To Jail!! You must roll doubles to get out!");
+				//Move token to Jail - Do not Collect $200
+				plrAry[plrIndx2].inJail = true;
+				plrAry[plrIndx2].location = 10;
+				View.displayMove(plrAry[plrIndx2].location);
+				}
+				View.displayMoney();//updating display
+			}//End if name property in object
+		}//End Else
 	}//End function Buy
 	buy(plrAry[plrIndx].location, plrIndx);//Calling buy property function here
 	
 	plrIndx += 1;//Switch player
 	
-	if(DiceRoll.doubles())
+	if(DiceRoll.doubles()){
 	plrIndx -= 1;//If doubles are rolled... it is the same player's turn again
+	
+	if(plrAry[plrIndx].inJail === true){
+	alert(plrAry[plrIndx].name+" got out of Jail!!");
+	plrAry[plrIndx].inJail = false;
+	  }//End if in jail
+	}//End if doubles
 	
 	if(plrIndx > numPlyrs - 1) //Go back to player 1 when all players have had a turn...
 		plrIndx = 0;
